@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "NODE_ENV=development nodemon index.js"
   },
   "author": "alamo",
   "license": "MIT",
