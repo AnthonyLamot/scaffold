@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
+import { Button } from 'react-native-elements';
 
 import { navigate } from './../helpers';
-import {
-  Loading,
-} from './../components';
+import Colors from '../config/Colors';
+import styles from './styles/Home';
 
 
 export default class HomeScreen extends Component {
@@ -13,29 +13,37 @@ export default class HomeScreen extends Component {
     navigation: PropTypes.object,
   }
 
-  state = {
-    loading: true,
-  }
-
-  componentDidMount() {
-    setTimeout(() => this.everythingLoaded(), 1000);
-  }
-
-  everythingLoaded() {
-    this.setState({ loading: false });
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: Colors.$green,
+    },
+    headerTitleStyle: {
+      color: Colors.$white,
+    },
   }
 
   render() {
     const { navigation } = this.props;
 
-    if (this.state.loading) {
-      return <Loading />;
-    }
     return (
-      <View>
-        <TouchableOpacity onPress={() => navigate(navigation, 'Login')} >
-          <Text style={{ color: 'blue' }} >Login</Text>
-        </TouchableOpacity>
+      <View style={styles.root} >
+        <View style={styles.item} >
+          <Button
+            backgroundColor={Colors.$green}
+            title="Login"
+            raised
+            onPress={() => navigate(navigation, 'Login')}
+          />
+        </View>
+        <View style={styles.item} >
+          <Button
+            backgroundColor={Colors.$blue}
+            title="Register"
+            raised
+            onPress={() => navigate(navigation, 'Register')}
+          />
+        </View>
       </View>
     );
   }

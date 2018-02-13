@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 import {
-  Placeholder,
+  RegisterForm,
 } from './../components';
 
 import Colors from '../config/Colors';
 
 
 /* eslint-disable react/prefer-stateless-function */
-export default class Login extends Component {
+export default class Register extends Component {
   static navigationOptions = {
-    title: 'Login',
+    title: 'Register',
     headerStyle: {
       backgroundColor: Colors.$green,
     },
@@ -18,6 +18,6 @@ export default class Login extends Component {
   }
 
   render() {
-    return <Placeholder />;
+    return <RegisterForm />;
   }
 }
