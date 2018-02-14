@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 
-import { navigate } from './../helpers';
+import { navigate } from './../helpers/navigationHelpers';
 import Colors from '../config/Colors';
 import styles from './styles/Home';
 

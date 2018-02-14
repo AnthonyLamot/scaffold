@@ -13,9 +13,7 @@ const TextInputWithValidations = ({
   ...custom
 }) => (
   <View style={containerStyle} >
-    <FormLabel
-      labelStyle={{ color: Colors.$blue }}
-    >
+    <FormLabel>
       {label}
     </FormLabel>
     <FormInput
@@ -28,7 +26,6 @@ const TextInputWithValidations = ({
       >
         {error}
       </FormValidationMessage>
-
     }
   </View>
 );

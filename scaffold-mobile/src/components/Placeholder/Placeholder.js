@@ -5,6 +5,7 @@ import styles from './styles';
 const Placeholder = () => (
   <View style={styles.root} >
     <Text>This is a placeholder</Text>
+    <Text>Congratz!</Text>
   </View>
 );
 

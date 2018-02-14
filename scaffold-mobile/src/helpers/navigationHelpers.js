@@ -1,6 +1,8 @@
 import { NavigationActions } from 'react-navigation';
 
 
+// Define helpers to make navigation a litlte easier
+
 const navigate = (navigation, screen) => {
   const navigateToLogin = NavigationActions.navigate({
     routeName: screen,

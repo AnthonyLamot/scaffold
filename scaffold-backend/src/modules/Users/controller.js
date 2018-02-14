@@ -3,11 +3,7 @@ import User from './model';
 
 /* eslint-disable import/prefer-default-export */
 export const createUser = async (req, res) => {
-  const { name } = req.body;
-
-  // ADD VALIDATION
-
-  const newUser = new User({ name });
+  const newUser = new User(req.body);
 
   try {
     return res.status(201).json({ error: false, user: await newUser.save() });

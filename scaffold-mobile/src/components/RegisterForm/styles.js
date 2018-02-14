@@ -7,7 +7,7 @@ const styles = EStyleSheet.create({
   item: {
     marginVertical: '2%',
   },
-  buttonCreate: {
+  buttonRegister: {
     position: 'absolute',
     left: 0,
     right: 0,
