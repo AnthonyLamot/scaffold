@@ -11,29 +11,15 @@ import Colors from '../../config/Colors';
 import styles from './styles';
 
 
-const RegisterForm = ({
+const LoginForm = ({
   invalid,
   handleSubmit,
-  submitRegister,
+  submitLogin,
   submitting,
   serverError,
   loading,
 }) => (
   <View style={styles.container} >
-    <Field
-      component={TextInputWithValidations}
-      name="firstName"
-      label="First Name"
-      selectionColor={Colors.$red}
-      containerStyle={styles.item}
-    />
-    <Field
-      component={TextInputWithValidations}
-      name="lastName"
-      label="Last Name"
-      selectionColor={Colors.$red}
-      containerStyle={styles.item}
-    />
     <Field
       component={TextInputWithValidations}
       name="email"
@@ -49,15 +35,7 @@ const RegisterForm = ({
       containerStyle={styles.item}
       secureTextEntry
     />
-    <Field
-      component={TextInputWithValidations}
-      name="confirmPassword"
-      label="Confirm Password"
-      selectionColor={Colors.$red}
-      containerStyle={styles.item}
-      secureTextEntry
-    />
-    <View style={styles.buttonRegister} >
+    <View style={styles.buttonLogin} >
       {
         serverError.on ?
           <View style={styles.submissionError}>
@@ -67,20 +45,20 @@ const RegisterForm = ({
       }
       <Button
         backgroundColor={Colors.$blue}
-        title="Register"
+        title="Login"
         raised
         disabled={invalid || submitting}
-        onPress={handleSubmit(submitRegister)}
+        onPress={handleSubmit(submitLogin)}
         loading={loading}
       />
     </View>
   </View>
 );
 
-RegisterForm.propTypes = {
+LoginForm.propTypes = {
   invalid: PropTypes.bool,
   handleSubmit: PropTypes.func,
-  submitRegister: PropTypes.func,
+  submitLogin: PropTypes.func,
   submitting: PropTypes.bool,
   serverError: PropTypes.object,
   loading: PropTypes.bool,
@@ -88,6 +66,6 @@ RegisterForm.propTypes = {
 
 // Connect the component to Redux Form and pass some custom validaitons
 export default reduxForm({
-  form: 'register',
+  form: 'login',
   validate: validations,
-})(RegisterForm);
+})(LoginForm);

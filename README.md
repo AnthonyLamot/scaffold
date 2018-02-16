@@ -1,24 +1,35 @@
-# scaffold
+# Description
+
 Mobile client (React Native) + backend (Node) scaffold to quickly set up new apps.
 
+
+# How to use
+
 To run backend on machine:
-`$ cd scaffold-backend && yarn dev`
+- Install MongoDB & `$ mongod` from terminal
+- `$ cd scaffold-backend && yarn dev` to boot the server
+- Recommended to get MongoDB Compass to easily check records in the database
+- Recommended to get Postman if you would like to test the server API
 
 To run mobile client on machine:
-Open with Expo and run on iOS simulator (or an Android emulator like Genymotion).
+- Install Expo and run `scaffold-mobile`
+- Install Redux Devtools and point to port 19001 (just open a new tab within Redux Devtools and confirm the port)
+- Run the app from Expo on the iOS Simulator or an Android Emulator (Genymotion recommended)
+
+
+# Contents
 
 Includes:
 - Modular folder structure. More boilerplate but makes the app more scalable.
 - Express / NodeJS to run backend, Mongoose to connect to MongoDB
 - React Native app created as Expo project
-- Redux to manage UI state on client
+- Redux to manage UI state on client, with Redux Thunk for asynchronous calls
 - React Navigation to navigate the mobile client, integrated into Redux
 - Some helper functions. `import { navigate, resetAndNavigate } from './../helpers/navigationHelpers`. Use `navigate(navigation, <nameOfYourScreen>` to navigate to screen which will rest on top of the nagivation stack, use `resetAndNavigate(navigation, <nameOfScreen1>, <nameOfScreen2>,...)` to define explicitely which navigation stack to go to.
-- User registration form using Redux Form
+- User registration (using bcrypt for password hashing) and login
 
 To add:
-- Password encryption
-- User log in
-- A module to create some kind of records (other than user data)
+- Use login history on server
+- Allow the user to create "events"
 - Email services (for user registration etc)
 - Web client (React)

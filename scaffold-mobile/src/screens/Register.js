@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {
   RegisterForm,
-  Loading,
 } from './../components';
 
 import Colors from '../config/Colors';
-import styles from './styles/Register';
-import { register as registerAction } from '../actions/registerActions';
+import { register as registerAction } from '../actions/authActions';
 
 
 /* eslint-disable react/prefer-stateless-function */
 class Register extends Component {
   static propTypes = {
     registerAction: PropTypes.func,
-    register: PropTypes.object,
+    auth: PropTypes.object,
   };
 
   static navigationOptions = {
@@ -36,32 +33,20 @@ class Register extends Component {
   }
 
   render() {
-    const { register } = this.props;
-
-    // Show a loading screen while the form is being submitted
-    if (register.loading) {
-      return <Loading />;
-    // Show the error if something went wrong
-    } else if (register.error.on) {
-      return (
-        <View style={styles.root} >
-          <Text>
-            {register.error.message}
-          </Text>
-        </View>
-      );
-    }
+    const { auth } = this.props;
 
     return (
       <RegisterForm
         submitRegister={this.submitRegister}
+        serverError={auth.error}
+        loading={auth.loading}
       />
     );
   }
 }
 
-const mapStateToProps = ({ register }) => ({
-  register,
+const mapStateToProps = ({ auth }) => ({
+  auth,
 });
 
 // Connect the screen component to Redux and pass mapped state and actions

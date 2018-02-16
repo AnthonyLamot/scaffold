@@ -16,10 +16,17 @@ axios.defaults.baseURL = url;
 export const register = async (args) => {
   try {
     const res = await axios.post('/users/create', { ...args });
-    console.log(res);
     return res;
   } catch (e) {
-    console.log(e);
-    return e;
+    throw e;
+  }
+};
+
+export const login = async (args) => {
+  try {
+    const res = await axios.post('/users/login', { ...args });
+    return res;
+  } catch (e) {
+    throw e;
   }
 };
