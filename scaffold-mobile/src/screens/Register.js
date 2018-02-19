@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import {
   RegisterForm,
+  GoBack,
 } from './../components';
 
 import Colors from '../config/Colors';
@@ -17,13 +18,14 @@ class Register extends Component {
     auth: PropTypes.object,
   };
 
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Register',
+    headerLeft: <GoBack navigation={navigation} route={null} />,
     headerStyle: {
       backgroundColor: Colors.$green,
     },
     headerTintColor: Colors.$white,
-  }
+  });
 
   // Submit the values from the RegisterForm through a Redux action
   // We also pass on the navigation prop so we can use it in navigationHelpers

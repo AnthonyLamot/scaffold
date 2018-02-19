@@ -33,7 +33,7 @@ export default class HomeScreen extends Component {
             backgroundColor={Colors.$green}
             title="Login"
             raised
-            onPress={() => navigate(navigation, 'Login')}
+            onPress={() => navigate(navigation, 'LoginStack')}
           />
         </View>
         <View style={styles.item} >
@@ -41,7 +41,15 @@ export default class HomeScreen extends Component {
             backgroundColor={Colors.$blue}
             title="Register"
             raised
-            onPress={() => navigate(navigation, 'Register')}
+            onPress={() => navigate(navigation, 'RegisterStack')}
+          />
+        </View>
+        <View style={styles.item} >
+          <Button
+            backgroundColor={Colors.$red}
+            title="DRAWER"
+            raised
+            onPress={() => navigate(navigation, 'UserRoutes')}
           />
         </View>
       </View>

@@ -61,6 +61,13 @@
     lodash "^4.17.4"
     react-native-vector-icons "4.4.2"
 
+"@expo/vector-icons@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-6.3.0.tgz#39685077546aacc819e235fb39f726c7395d57e9"
+  dependencies:
+    lodash "^4.17.4"
+    react-native-vector-icons "4.5.0"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -3640,7 +3647,7 @@ react-native-vector-icons@4.4.2:
     prop-types "^15.5.10"
     yargs "^8.0.2"
 
-react-native-vector-icons@^4.5.0:
+react-native-vector-icons@4.5.0, react-native-vector-icons@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.5.0.tgz#6b95619e64f62f05f579f74a01fe5640df95158b"
   dependencies:
