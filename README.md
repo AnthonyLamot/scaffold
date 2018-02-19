@@ -27,9 +27,10 @@ Includes:
 - React Navigation to navigate the mobile client, integrated into Redux
 - Some helper functions. `import { navigate, resetAndNavigate } from './../helpers/navigationHelpers`. Use `navigate(navigation, <nameOfYourScreen>` to navigate to screen which will rest on top of the nagivation stack, use `resetAndNavigate(navigation, <nameOfScreen1>, <nameOfScreen2>,...)` to define explicitely which navigation stack to go to.
 - User registration (using bcrypt for password hashing) and login
+- Simple "events" functionality: Users can create and see events
 
 To add:
 - Use login history on server
-- Allow the user to create "events"
+- Add user sessions and add security so only logged in users can use events API
 - Email services (for user registration etc)
 - Web client (React)
