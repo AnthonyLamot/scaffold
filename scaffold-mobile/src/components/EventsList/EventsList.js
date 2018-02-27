@@ -12,6 +12,7 @@ const EventsList = ({ events }) => (
         <ListItem
           key={e._id}
           title={e.title}
+          hideChevron
         />
       ))
     }

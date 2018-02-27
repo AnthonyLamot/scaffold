@@ -19,6 +19,7 @@ class Events extends Component {
   static propTypes = {
     getUserEventsAction: PropTypes.func,
     events: PropTypes.object,
+    auth: PropTypes.object,
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -34,7 +35,8 @@ class Events extends Component {
   });
 
   componentDidMount() {
-    this.props.getUserEventsAction('5a865279ca197a2a235a4740');
+    const { auth } = this.props;
+    this.props.getUserEventsAction(auth.currentUser.id);
   }
 
   render() {
@@ -52,10 +54,7 @@ class Events extends Component {
   }
 }
 
-const mapStateToProps = ({ events, auth }) => ({
-  events,
-  auth,
-});
+const mapStateToProps = ({ events, auth }) => ({ events, auth });
 
 export default connect(
   mapStateToProps,

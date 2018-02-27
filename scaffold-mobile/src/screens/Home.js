@@ -44,14 +44,6 @@ export default class HomeScreen extends Component {
             onPress={() => navigate(navigation, 'RegisterStack')}
           />
         </View>
-        <View style={styles.item} >
-          <Button
-            backgroundColor={Colors.$red}
-            title="DRAWER"
-            raised
-            onPress={() => navigate(navigation, 'UserRoutes')}
-          />
-        </View>
       </View>
     );
   }

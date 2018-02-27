@@ -27,4 +27,14 @@ const UserSchema = new Schema(
   { timestamps: true },
 );
 
-export default mongoose.model('User', UserSchema);
+export const User = mongoose.model('User', UserSchema);
+
+const LoginHistorySchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+}, { timestamps: true });
+
+export const LoginHistory = mongoose.model('LoginHistory', LoginHistorySchema);

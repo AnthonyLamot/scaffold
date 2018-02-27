@@ -4,10 +4,10 @@ import { NavigationActions } from 'react-navigation';
 // Define helpers to make navigation a litlte easier
 
 const navigate = (navigation, screen) => {
-  const navigateToLogin = NavigationActions.navigate({
+  const navigateAction = NavigationActions.navigate({
     routeName: screen,
   });
-  navigation.dispatch(navigateToLogin);
+  navigation.dispatch(navigateAction);
 };
 
 const resetAndNavigate = (navigation, ...screens) => {
@@ -19,6 +19,7 @@ const resetAndNavigate = (navigation, ...screens) => {
         params: {},
       }),
     ],
+    key: null,
   });
   navigation.dispatch(resetAction);
 

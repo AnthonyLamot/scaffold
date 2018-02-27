@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -9,6 +10,7 @@ import {
 
 import Colors from '../config/Colors';
 import { register as registerAction } from '../actions/authActions';
+import styles from './styles/Register';
 
 
 /* eslint-disable react/prefer-stateless-function */
@@ -38,11 +40,13 @@ class Register extends Component {
     const { auth } = this.props;
 
     return (
-      <RegisterForm
-        submitRegister={this.submitRegister}
-        serverError={auth.error}
-        loading={auth.loading}
-      />
+      <View style={styles.root} >
+        <RegisterForm
+          submitRegister={this.submitRegister}
+          serverError={auth.error}
+          loading={auth.loading}
+        />
+      </View>
     );
   }
 }

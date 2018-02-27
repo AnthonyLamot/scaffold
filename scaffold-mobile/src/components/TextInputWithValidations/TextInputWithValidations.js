@@ -4,21 +4,23 @@ import { View } from 'react-native';
 import { FormInput, FormLabel, FormValidationMessage } from 'react-native-elements';
 
 import Colors from '../../config/Colors';
+import styles from './styles';
 
 const TextInputWithValidations = ({
   input,
-  containerStyle,
+  fieldContainerStyle,
   label,
   meta: { touched, error },
   ...custom
 }) => (
-  <View style={containerStyle} >
+  <View style={fieldContainerStyle} >
     <FormLabel>
       {label}
     </FormLabel>
     <FormInput
       {...input}
       {...custom}
+      inputStyle={styles.inputStyle}
     />
     {error && touched &&
       <FormValidationMessage
@@ -32,7 +34,7 @@ const TextInputWithValidations = ({
 
 TextInputWithValidations.propTypes = {
   input: PropTypes.object,
-  containerStyle: PropTypes.number,
+  fieldContainerStyle: PropTypes.number,
   label: PropTypes.string,
   meta: PropTypes.object,
 };

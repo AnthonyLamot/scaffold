@@ -7,7 +7,7 @@ const styles = EStyleSheet.create({
   container: {
     flex: 1,
   },
-  item: {
+  fieldContainerStyle: {
     marginVertical: '2%',
   },
   buttonLogin: {

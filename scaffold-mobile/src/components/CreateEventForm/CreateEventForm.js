@@ -25,7 +25,7 @@ const CreateEventForm = ({
       name="title"
       label="Title"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.fieldContainerStyle}
     />
     <Field
       component={TextInputWithValidations}
@@ -33,7 +33,7 @@ const CreateEventForm = ({
       label="Description"
       selectionColor={Colors.$red}
       containerStyle={styles.item}
-      secureTextEntry
+      multiline
     />
     <View style={styles.buttonSubmit} >
       {

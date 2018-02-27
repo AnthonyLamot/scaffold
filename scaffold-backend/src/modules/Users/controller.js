@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import User from './model';
+import { User, LoginHistory } from './model';
 
 
 export const createUser = async (req, res) => {
@@ -10,7 +10,6 @@ export const createUser = async (req, res) => {
     lastName,
     email,
     password,
-    // confirmPassword,
   } = req.body;
 
   // Check if a user with the same email address already exists
@@ -31,13 +30,16 @@ export const createUser = async (req, res) => {
       password: hash,
     }).save();
 
+    // If the register works, it counts as a first login which we record
+    new LoginHistory({
+      user: newUser._id,
+    }).save();
+
     // Send back the user info if succesful but without the password
     return res.status(201).json({
       error: false,
       user: {
-        /* eslint-disable no-underscore-dangle */
         id: newUser._id,
-        /* eslint-enable no-underscore-dangle */
         firstName: newUser.firstName,
         lastName: newUser.lastName,
         email: newUser.email,
@@ -57,12 +59,15 @@ export const login = async (req, res) => {
   if (user) {
     // Check if the password is correct
     if (bcrypt.compareSync(password, user.password)) {
+      // Record every time a user logs in
+      new LoginHistory({
+        user: user._id,
+      }).save();
+
       return res.status(201).json({
         error: false,
         user: {
-        /* eslint-disable no-underscore-dangle */
           id: user._id,
-          /* eslint-enable no-underscore-dangle */
           firstName: user.firstName,
           lastName: user.lastName,
           email: user.email,
@@ -71,7 +76,6 @@ export const login = async (req, res) => {
     }
     return res.status(400).json({ error: true, message: 'Email address and pasword don\'t match' });
   }
-
   return res.status(400).json({ error: true, message: 'No user with this email address found' });
 };
 

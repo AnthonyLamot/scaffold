@@ -25,14 +25,14 @@ const LoginForm = ({
       name="email"
       label="Email"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.fieldContainerStyle}
     />
     <Field
       component={TextInputWithValidations}
       name="password"
       label="Password"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.fieldContainerStyle}
       secureTextEntry
     />
     <View style={styles.buttonLogin} >

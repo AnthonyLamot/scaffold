@@ -40,7 +40,7 @@ export default (state = initialState, action) => {
         ...state,
         error: {
           on: true,
-          message: action.payload,
+          message: action.payload.message,
         },
         loading: false,
       };

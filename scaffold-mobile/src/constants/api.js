@@ -31,9 +31,9 @@ export const login = async (args) => {
   }
 };
 
-export const createEvent = async (args) => {
+export const createEvent = async (args, userId) => {
   try {
-    const res = await axios.post('/events/create', { ...args });
+    const res = await axios.post('/events/create', { ...args, userId });
     return res.data.events;
   } catch (e) {
     throw e;

@@ -5,6 +5,7 @@ import {
   LOGIN,
   LOGIN_ERROR,
   LOGIN_SUCCESS,
+  LOGOUT,
 } from '../constants/actionTypes';
 
 
@@ -54,6 +55,10 @@ export default (state = initialState, action) => {
           on: true,
           message: action.payload.message,
         },
+      };
+    case LOGOUT:
+      return {
+        ...initialState,
       };
     default:
       return state;

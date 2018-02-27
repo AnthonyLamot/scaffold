@@ -5,6 +5,7 @@ import {
   LOGIN,
   LOGIN_ERROR,
   LOGIN_SUCCESS,
+  LOGOUT,
 } from '../constants/actionTypes';
 import {
   register as registerAPI,
@@ -26,18 +27,15 @@ const registerError = error => ({
 export const register = (navigation, values) => async (dispatch) => {
   dispatch({ type: REGISTER });
 
-  let dispatchEvent = null;
   try {
     const res = await registerAPI(values);
     const { user } = res.data;
-    dispatchEvent = registerSuccess(user);
+    dispatch(registerSuccess(user));
     resetAndNavigate(navigation, 'UserRoutes');
   } catch (e) {
     // Get the data that came along with the response
-    dispatchEvent = registerError(e.response.data);
+    dispatch(registerError(e.response.data));
   }
-
-  dispatch(dispatchEvent);
 };
 
 const loginSuccess = user => ({
@@ -53,16 +51,17 @@ const loginError = error => ({
 export const login = (navigation, values) => async (dispatch) => {
   dispatch({ type: LOGIN });
 
-  let dispatchEvent = null;
   try {
     const res = await loginAPI(values);
     const { user } = res.data;
-    dispatchEvent = loginSuccess(user);
+    dispatch(loginSuccess(user));
     resetAndNavigate(navigation, 'UserRoutes');
   } catch (e) {
-    dispatchEvent = loginError(e.response.data);
+    dispatch(loginError(e.response.data));
   }
-
-  dispatch(dispatchEvent);
 };
 
+export const logout = navigation => (dispatch) => {
+  resetAndNavigate(navigation, 'HomeStack');
+  dispatch({ type: LOGOUT });
+};

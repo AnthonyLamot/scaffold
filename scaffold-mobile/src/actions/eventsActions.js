@@ -30,11 +30,14 @@ export const createEvent = (navigation, values, userId) => async (dispatch) => {
   dispatch({ type: CREATE_EVENT });
 
   try {
-    await createEventAPI(values);
-    dispatch(createEventSuccess);
-    getUserEvents(userId);
+    await createEventAPI(values, userId);
+    dispatch(createEventSuccess());
+    dispatch({
+      type: GET_USER_EVENTS,
+      payload: await getUserEventsAPI(userId),
+    });
     navigation.goBack();
   } catch (e) {
-    dispatch(createEventError);
+    dispatch(createEventError(e.response.data));
   }
 };

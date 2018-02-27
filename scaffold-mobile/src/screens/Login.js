@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -9,6 +10,7 @@ import {
 
 import Colors from '../config/Colors';
 import { login as loginAction } from '../actions/authActions';
+import styles from './styles/Login';
 
 
 /* eslint-disable react/prefer-stateless-function */
@@ -38,10 +40,12 @@ class Login extends Component {
     const { auth } = this.props;
 
     return (
-      <LoginForm
-        submitLogin={this.submitLogin}
-        serverError={auth.error}
-      />
+      <View style={styles.root} >
+        <LoginForm
+          submitLogin={this.submitLogin}
+          serverError={auth.error}
+        />
+      </View>
     );
   }
 }

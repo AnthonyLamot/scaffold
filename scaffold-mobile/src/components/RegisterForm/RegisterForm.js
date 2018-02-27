@@ -25,28 +25,28 @@ const RegisterForm = ({
       name="firstName"
       label="First Name"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.item}
     />
     <Field
       component={TextInputWithValidations}
       name="lastName"
       label="Last Name"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.item}
     />
     <Field
       component={TextInputWithValidations}
       name="email"
       label="Email"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.item}
     />
     <Field
       component={TextInputWithValidations}
       name="password"
       label="Password"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.item}
       secureTextEntry
     />
     <Field
@@ -54,7 +54,7 @@ const RegisterForm = ({
       name="confirmPassword"
       label="Confirm Password"
       selectionColor={Colors.$red}
-      containerStyle={styles.item}
+      fieldContainerStyle={styles.item}
       secureTextEntry
     />
     <View style={styles.buttonRegister} >
