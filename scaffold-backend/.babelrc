@@ -1,3 +1,14 @@
 {
-  "presets": ["es2015"]
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "stage-3"
+  ],
+  "plugins": ["transform-class-properties"]
 }
