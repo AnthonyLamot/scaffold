@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
+    "predev": "yarn install",
     "dev": "NODE_ENV=development nodemon index.js"
   },
   "author": "alamo",
