@@ -6,7 +6,7 @@ Mobile client (React Native) + backend (Node) scaffold to quickly set up new app
 # How to use
 
 To run backend on machine:
-- Install MongoDB & `$ mongod` from terminal
+- Run docker-compose up -d db or install MongoDB & `$ mongod` from terminal
 - `$ cd scaffold-backend && yarn dev` to boot the server
 - Recommended to get MongoDB Compass to easily check records in the database
 - Recommended to get Postman if you would like to test the server API
